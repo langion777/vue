@@ -1,0 +1,70 @@
+<!--<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+  </body>
+</html>-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <span v-bind:title="message">
+    鼠标悬停几秒钟查看此处动态绑定的提示信息！
+  </span>
+</div>
+
+<div id="app3">
+    <ol>
+        <li v-for="todo in todos">
+            {{todo.text}}
+        </li>
+    </ol>
+</div>
+
+<div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">ggbone</button>
+</div>
+
+<script>
+    var app = new Vue({
+    el: '#app',
+    data: {
+    message: 'Helloffhwewhh Vue!'
+    }
+    })
+
+    var app2 = new Vue({
+        el:'#app3',
+        data:{
+            message:'zzz',
+            todos:[
+                {text:"ha"},
+                {text:"haha"},
+                {text:"hahaha"}
+            ]
+        }
+    })
+
+    var app5 = new Vue({
+        el: '#app-5',
+        data: {
+            message: 'Hello Vue.js!'
+        },
+        methods: {
+            reverseMessage: function () {
+                //this.message = this.message = this.message.split('')
+                this.message = this.message.split('').reverse().join('')
+            }
+        }
+    })
+</script>
