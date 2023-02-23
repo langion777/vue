@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<div id ='vs'>
+    <span >Message: {{ msg }}</span>
+    <br>
+    <button v-on:click="greeting">time has gone</button>
+    <a :href="url">Click me</a>
+    <br>
+    <h1 v-if="msg === 'fuck it'">Vue is awesome!</h1>
+    <br>
+    <div v-bind:class="{ active: isActive }">haha</div>
+</div>
 
+</body>
+</html>
 <script>
+    var vv = new Vue({
+        el:"#vs",
+        data:{
+            msg:"fuck it",
+            url:"www.baidu.com",
+            isActive:true
+    },
+        methods:{
+            greeting:function(){
+                if(this.msg === "gugugua"){
+                    this.msg = "zzz"
+                }
+                else{this.msg = "gugugua"}
+            }
+        }
+    })
     new Vue({
         data: {
-            a: 1
+            a: 1,
+            msg:"fuck you"
         },
         created: function () {
             // `this` 指向 vm 实例
             console.log('a is: ' + this.a)
         }
     })
+
 </script>
-</body>
-</html>
